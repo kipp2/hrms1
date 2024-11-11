@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+        <meta charset="utf=8">
+        <title>Add New Employee</title>
+</head>
+<body>
+        <h1>Add New Employee</h1>
+        <form action="{{ url_for('add_employee') }}" method="POST>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="role_id">Role ID:</label>
+                <input type="number" id="role_id" name="role_id" >
+
+                <label for="salary">Salary</label>
+                <input type="number" id="salary" name="salary" re>
+
+                <label for"off_days">Off Days</label>
+                <input type="number" id="off_days" name="off_days>
+
+        </form>
+</body>
+</html>
