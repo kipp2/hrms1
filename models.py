@@ -1,6 +1,8 @@
-from app import db 
+from flask_sqlalchemy import SQLAlchemy
 
-class Employee(db.Model):
+db = SQLAlchemy() 
+
+class Employees(db.Model):
     __tablename__ = 'employees'
     employee_id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(50))
@@ -50,7 +52,7 @@ class Recruitment(db.Model):
     status = db.Column(db.String(20), db.CheckConstraint("status IN ('Open', 'Closed', 'Filled')"))
     salary_offered = db.Column(db.Numeric)
 
-class Applicant(db.Model):
+class Applicants(db.Model):
     __tablename__ = 'applicants'
     applicant_id = db.Column(db.Integer, primary_key=True)
     recruitment_id = db.Column(db.Integer, db.ForeignKey('recruitment.recruitment_id', ondelete="CASCADE"))
@@ -86,7 +88,7 @@ class Compliance(db.Model):
     due_date = db.Column(db.Date)
     completion_date = db.Column(db.Date)
 
-class Project(db.Model):
+class Projects(db.Model):
     __tablename__ = 'projects'
     project_id = db.Column(db.Integer, primary_key=True)
     project_name = db.Column(db.String(100), nullable=False)
